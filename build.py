@@ -20,6 +20,7 @@ YT_SHORTS_TAB = "https://www.youtube.com/@rachelhulshof4653/shorts"
 YT_UPLOADS = "UUFrfJyf0yW3hVWEBFSz_N2w"   # uploads-playlist (blijft vanzelf actueel)
 # Specifieke video's om uit te lichten (ID's van youtube.com/watch?v=ID). Aanvullen kan hier.
 VIDEOS = [
+  {"id":"0ehpTB2QOhM", "title":"Afvallen met gezond eten met Slinc"},
   {"id":"xmGXk2Cz0m0", "title":"Afvallen met een simpel voedingsschema"},
 ]
 # Shorts: vul aan met ID's van youtube.com/shorts/ID. Leeg = knop naar de Shorts-tab.
@@ -260,7 +261,7 @@ def page_home():
       <h2>Tips en verhalen van Rachel</h2>
       <p class="lead">Op haar YouTube-kanaal deelt Rachel praktische tips, video-podcasts en verhalen over afvallen met gezond eten.</p>
     </div>
-    {yt_playlist(YT_UPLOADS)}
+    {yt_video(VIDEOS[0]["id"])}
     <p style="text-align:center;margin-top:24px"><a class="btn btn-ghost" href="/videos/">Naar alle video's en shorts {IC['arrow']}</a></p>
   </div>
 </section>
@@ -382,7 +383,8 @@ def page_rachel():
 def page_videos():
     path="/videos/"; crumbs=[("Home","/"),("Video's",path)]
     ld=[{"@context":"https://schema.org","@type":"WebPage","@id":BASE+path,"url":BASE+path,"name":"Video's en shorts van Rachel Hulshof","inLanguage":"nl-NL"},breadcrumb(crumbs)]
-    featured="".join(f'<div>{yt_video(v["id"])}<p style="margin-top:10px;font-weight:700">{esc(v["title"])}</p></div>' for v in VIDEOS)
+    featured="".join(f'<div>{yt_video(v["id"])}<p style="margin-top:10px;font-weight:700">{esc(v["title"])}</p></div>' for v in VIDEOS[1:])
+    featured_block=(f'<h2 style="margin-top:44px">Meer video\'s</h2><div class="grid cols-2">{featured}</div>' if featured else "")
     if SHORTS:
         shorts_block=f'<div class="shorts">'+"".join(yt_short(s["id"]) for s in SHORTS)+'</div>'
     else:
@@ -395,16 +397,16 @@ def page_videos():
     <div class="section-head">
       <span class="eyebrow">{IC['play']}Video's</span>
       <h1>Video's van Rachel Hulshof</h1>
-      <p class="lead">Op haar YouTube-kanaal deelt Rachel praktische tips, video-podcasts, recepten en verhalen over afvallen met gezond eten. Hieronder de laatste video's van het kanaal.</p>
+      <p class="lead">Op haar YouTube-kanaal deelt Rachel praktische tips, video-podcasts, recepten en verhalen over afvallen met gezond eten. Hieronder een greep uit de video's. Het volledige en actuele aanbod staat op het kanaal zelf.</p>
     </div>
-    {yt_playlist(YT_UPLOADS)}
+    {yt_video(VIDEOS[0]["id"])}
+    <p style="margin-top:12px;font-weight:700">{esc(VIDEOS[0]["title"])}</p>
   </div>
 </section>
 
 <section class="section panel">
   <div class="wrap">
-    <div class="section-head"><span class="eyebrow">{IC['spark']}Uitgelicht</span><h2>Een greep uit de video's</h2></div>
-    <div class="grid cols-2">{featured}</div>
+    {featured_block}
     <h2 style="margin-top:44px">Shorts</h2>
     {shorts_block}
     <p style="margin-top:24px"><a class="btn btn-primary" href="{LINKS['youtube']}" target="_blank" rel="noopener">Naar het YouTube-kanaal {IC['arrow']}</a> <a class="btn btn-ghost" href="{LINKS['podcast']}" target="_blank" rel="noopener">Beluister de podcast</a></p>
