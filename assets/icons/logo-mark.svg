@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Body Balance Online">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#8E3B5E"/><stop offset="1" stop-color="#CE6E86"/>
+  </linearGradient></defs>
+  <circle cx="24" cy="24" r="22" fill="url(#g)"/>
+  <path d="M24 34 C 17 30, 15 22, 20 17 C 22 22, 26 22, 28 17 C 33 22, 31 30, 24 34 Z" fill="#fff" opacity="0.95"/>
+  <path d="M24 34 L24 20" stroke="#8E3B5E" stroke-width="1.4" stroke-linecap="round" opacity="0.7"/>
+</svg>
