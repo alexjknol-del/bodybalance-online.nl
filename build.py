@@ -55,7 +55,7 @@ IC = {
 }
 SPRIG='<svg class="sprig" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"><path d="M24 42V16"/><path d="M24 22c-4 0-7-2-8-6 4 0 7 2 8 6z"/><path d="M24 22c4 0 7-2 8-6-4 0-7 2-8 6z"/><path d="M24 30c-3.5 0-6-2-7-5 3.5 0 6 2 7 5z"/><path d="M24 30c3.5 0 6-2 7-5-3.5 0-6 2-7 5z"/></svg>'
 
-NAV = [("Home","/"),("Slinc","/slinc/"),("Afslankstudio's","/afslankstudios/"),("Over Rachel","/over-rachel/"),("Video's","/videos/"),("Contact","/contact/")]
+NAV = [("Home","/"),("Slinc","/slinc/"),("Afslankstudio's","/afslankstudios/"),("Over Rachel","/over-rachel/"),("Video's","/videos/"),("Partners","/partners/"),("Contact","/contact/")]
 
 def yt_video(vid):
     return f'<div class="video16"><iframe src="https://www.youtube-nocookie.com/embed/{vid}" title="Video van Rachel Hulshof op YouTube" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>'
@@ -414,6 +414,29 @@ def page_videos():
 </section>"""
     h+=footer(); write(path,h)
 
+
+def page_partners():
+    path="/partners/"; crumbs=[("Home","/"),("Partners",path)]
+    ld=[breadcrumb(crumbs),{"@context":"https://schema.org","@type":"WebPage","@id":BASE+path,"url":BASE+path,"name":"Partners","inLanguage":"nl-NL"}]
+    h=head("Partners | "+SITE,"Bronnen en linkpartners waar Body Balance Online naar verwijst.",path,ld)
+    h+=crumbs_html(crumbs)
+    h+=f"""<section class="section">
+  <div class="wrap prose">
+    <span class="eyebrow">{IC['leaf']}Partners</span>
+    <h1>Partners en bronnen</h1>
+    <p class="lead">Body Balance Online verwijst hier naar externe partners en bronnen.</p>
+    <div class="grid cols-2" style="margin-top:14px">
+      <div class="card"><h3>Tatanka</h3><p style="margin-bottom:14px">Tatanka is een Nederlandse smartshop met paddo growkits en smartshopproducten, met uitleg per soort en een overzicht van het aanbod.</p><a class="more" href="https://www.tatanka.nl/nl/shroomshop/magic-mushroom-grow-kits/" target="_blank" rel="noopener">Paddo mushroom growkit {IC['arrow']}</a></div>
+      <div class="card"><h3>Smartific</h3><p style="margin-bottom:14px">Smartific is een Nederlandse smartshop met magic truffels, growkits en smartshopproducten, inclusief productinformatie per artikel.</p><a class="more" href="https://smartific.nl/joint-roller/" target="_blank" rel="noopener">Joint roller kopen {IC['arrow']}</a></div>
+      <div class="card"><h3>The Headshop</h3><p style="margin-bottom:14px">The Headshop is een Nederlandse headshop met kratom en smartshopproducten, met een uitgebreid overzicht per soort en sterkte.</p><a class="more" href="https://www.headshop.nl/nl/super-bali-gold-kratom/" target="_blank" rel="noopener">Super Bali Gold Kratom {IC['arrow']}</a></div>
+      <div class="card"><h3>Paddo.shop</h3><p style="margin-bottom:14px">Paddo.shop is een Nederlandse webshop gespecialiseerd in paddo growkits, met uitleg per kweekset en kweekinstructies.</p><a class="more" href="https://www.paddo.shop/mexican-paddo-growkit/" target="_blank" rel="noopener">Mexican paddo {IC['arrow']}</a></div>
+      <div class="card"><h3>Magictruffels.shop</h3><p style="margin-bottom:14px">Magictruffels.shop is een Nederlandse webshop voor magic truffels, met een overzicht per soort en de werking ervan.</p><a class="more" href="https://www.magictruffels.shop/" target="_blank" rel="noopener">mushrocks truffels {IC['arrow']}</a></div>
+      
+    </div>
+  </div>
+</section>"""
+    h+=footer(); write(path,h)
+
 def page_contact():
     path="/contact/"; crumbs=[("Home","/"),("Contact",path)]
     ld=[breadcrumb(crumbs),{"@context":"https://schema.org","@type":"ContactPage","@id":BASE+path,"url":BASE+path,"name":"Contact","inLanguage":"nl-NL"}]
@@ -470,7 +493,7 @@ def not_found():
     open(os.path.join(OUT,"404.html"),"w",encoding="utf-8").write(h)
 
 def extras():
-    urls=["/","/slinc/","/afslankstudios/","/over-rachel/","/videos/","/contact/","/privacybeleid/","/cookiebeleid/"]
+    urls=["/","/slinc/","/afslankstudios/","/over-rachel/","/videos/","/partners/","/contact/","/privacybeleid/","/cookiebeleid/"]
     sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"  <url><loc>{BASE}{u}</loc></url>\n" for u in urls)+"</urlset>\n"
     open(os.path.join(OUT,"sitemap.xml"),"w").write(sm)
     open(os.path.join(OUT,"robots.txt"),"w").write(f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
@@ -489,6 +512,7 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     copy_assets()
     page_home(); page_slinc(); page_studios(); page_rachel(); page_videos()
+    page_partners()
     page_contact(); privacy(); cookies(); not_found(); extras()
     print("Build klaar in", OUT)
 
