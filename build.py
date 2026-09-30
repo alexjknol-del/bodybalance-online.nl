@@ -55,7 +55,7 @@ IC = {
 }
 SPRIG='<svg class="sprig" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"><path d="M24 42V16"/><path d="M24 22c-4 0-7-2-8-6 4 0 7 2 8 6z"/><path d="M24 22c4 0 7-2 8-6-4 0-7 2-8 6z"/><path d="M24 30c-3.5 0-6-2-7-5 3.5 0 6 2 7 5z"/><path d="M24 30c3.5 0 6-2 7-5-3.5 0-6 2-7 5z"/></svg>'
 
-NAV = [("Home","/"),("Slinc","/slinc/"),("Afslankstudio's","/afslankstudios/"),("Over Rachel","/over-rachel/"),("Video's","/videos/"),("Partners","/partners/"),("Contact","/contact/")]
+NAV = [("Home","/"),("Slinc","/slinc/"),("Afslankstudio's","/afslankstudios/"),("Over Rachel","/over-rachel/"),("Video's","/videos/"),("Blog","/blog/"),("Partners","/partners/"),("Contact","/contact/")]
 
 def yt_video(vid):
     return f'<div class="video16"><iframe src="https://www.youtube-nocookie.com/embed/{vid}" title="Video van Rachel Hulshof op YouTube" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>'
@@ -118,6 +118,7 @@ def footer():
         <a href="/afslankstudios/">In Shape Afslankstudio's</a>
         <a href="/over-rachel/">Over Rachel Hulshof</a>
         <a href="/videos/">Video's en shorts</a>
+        <a href="/blog/">Blog</a>
       </div>
       <div>
         <h4>Meer</h4>
@@ -415,6 +416,60 @@ def page_videos():
     h+=footer(); write(path,h)
 
 
+# ---------------------------------------------------------------------------
+# BLOG (nieuwste eerst)
+# ---------------------------------------------------------------------------
+ARTIKELEN = [
+    dict(slug="persoonlijke-blauwdruk-vitaliteit", titel='Echt gezond: jouw persoonlijke blauwdruk voor vitaliteit', datum="2026-09-30", datumtekst="30 september 2026",
+         omschrijving="Waarom standaard gezondheidsadvies vaak niet werkt en hoe een vitamine test en persoonlijke supplementen een eigen plan voor vitaliteit onderbouwen.",
+         body=r"""<p>Gezond leven is voor iedereen anders. Elk lichaam heeft unieke behoeften. Ontdek het effect van gepersonaliseerde supplementen en behandelingen. Ook een vitamine test uitvoeren ondersteunt jouw gezonde leefstijl. Met de juiste inzichten maak je gerichte keuzes. Zo draag je echt bij aan jouw vitaliteit. Lees snel verder. Ontdek de weg naar jouw persoonlijke gezondheidsdoelen.</p>
+<h2>Waarom standaard gezondheidsadvies vaak niet werkt</h2>
+<p>Het menselijk lichaam is een complex systeem. Genetica, voeding en leefstijl veranderen dit systeem continu. Een goede aanvulling voor de één doet voor een ander soms heel weinig. Algemene adviezen houden geen rekening met individuele verschillen. Hierdoor slikken veel mensen onnodig supplementen. Dit kan leiden tot een overschot van bepaalde stoffen. Andere tekorten blijven hierdoor onopgemerkt. Een gerichte aanpak is daarom wenselijk.</p>
+<h2>Wat is het voordeel van een vitamine test uitvoeren?</h2>
+<p>Meten is weten op het gebied van jouw vitaliteit. Een <a href="https://www.orthokliniek.com/behandelingen/Vitaminetest/" target="_blank" rel="noopener">vitamine test uitvoeren</a> geeft je een helder overzicht van de actuele waarden in jouw lichaam. De meting brengt eventuele tekorten nauwkeurig in kaart. Dit gebeurt nog voor het ontstaan van lichamelijke klachten. Op basis van harde feiten ontdek je snel de benodigde stoffen. Dit voorkomt keuzes op basis van gevoel.</p>
+<p>De voordelen van deze gerichte meting zijn:</p>
+<ul><li>Je krijgt direct inzicht in specifieke tekorten.</li><li>Je voorkomt het onnodig slikken van willekeurige producten.</li><li>Je kunt gericht werken aan het verbeteren van jouw energieniveau.</li></ul>
+<h2>Hoe gepersonaliseerde supplementen en behandelingen je helpen</h2>
+<p>Na de uitslag van het onderzoek stelt een specialist een passend plan op. Dit plan richt zich specifiek op jouw situatie met op maat gemaakte adviezen. Zo krijg je exact de juiste dosering. Je vult hiermee direct de actuele tekorten aan. Je ondersteunt hiermee processen zoals je energieniveau en je natuurlijke weerstand op een effectieve manier.</p>
+<p>Naast specifieke voedingsstoffen omvat deze methode vaak ook bredere adviezen voor jouw dagelijkse leven. Denk hierbij aan aanpassingen in je dieet of hulp bij stressbeheersing. Kies voor gerichte <a href="https://www.orthokliniek.com/behandelingen/" target="_blank" rel="noopener">supplementen en behandelingen</a>. Daarmee geef je jouw lichaam precies de benodigde ondersteuning. Dit helpt je bij een fitter en energieker leven.</p>
+<h2>Waarom Orthokliniek de ideale partner is voor jouw gezondheid</h2>
+<p>Bij het verbeteren van je vitaliteit is betrouwbare begeleiding onmisbaar. Orthokliniek staat bekend als een deskundige partij op het gebied van natuurlijke gezondheid. De organisatie biedt professionele ondersteuning als orthomoleculair en natuurgeneeskundig specialist. Een orthomoleculaire behandeling herstelt de gezondheid met natuurlijke stoffen. De natuurgeneeskunde stimuleert het zelfgenezend vermogen van het lichaam. Bovendien zijn de therapeuten geregistreerd bij de VBAG en de RBCZ. De VBAG is een beroepsvereniging voor natuurlijke geneeswijzen. De RBCZ is een kwaliteitsregister voor complementaire zorg. Deze registraties garanderen een veilige behandelomgeving. Je krijgt hierdoor advies volgens strenge kwaliteitseisen.</p>
+<p>Met meer dan 20 jaar ervaring met gezondheidsproducten heeft Orthokliniek de nodige kennis in huis. Zij adviseren jou optimaal. Kies voor een gericht onderzoek of vraag advies over specifieke stoffen. Je krijgt altijd hulp op maat. Zo werk je op een verantwoorde manier aan een fitter leven.</p>
+<h2>Zet vandaag nog de eerste stap naar een fitter leven</h2>
+<p>Wacht niet langer met het verbeteren van je gezondheid. Kies direct voor een gerichte aanpak. Ontdek de specifieke behoeften van jouw lichaam. Zo voorkom je verspilling en boek je sneller resultaat. Bezoek de website van Orthokliniek voor het direct bestellen van jouw test. Bekijk daar ook het uitgebreide assortiment. Bij een bestelling profiteer je van gratis verzending vanaf €75 op al je gezondheidsproducten.</p>"""),
+]
+
+def page_blog():
+    path="/blog/"; crumbs=[("Home","/"),("Blog",path)]
+    ld=[breadcrumb(crumbs),{"@context":"https://schema.org","@type":"Blog","@id":BASE+path,"url":BASE+path,"name":"Blog","inLanguage":"nl-NL",
+        "blogPost":[{"@type":"BlogPosting","headline":a["titel"],"url":BASE+path+a["slug"]+"/","datePublished":a["datum"]} for a in ARTIKELEN]}]
+    h=head("Blog | "+SITE,"Artikelen over afvallen, gezond eten en in balans blijven, van Body Balance Online en gastauteurs.",path,ld)
+    h+=crumbs_html(crumbs)
+    cards="".join(f"""<div class="card"><h3>{esc(a['titel'])}</h3><p style="margin-bottom:14px">{esc(a['omschrijving'])}</p><a class="more" href="{path}{a['slug']}/">Lees verder {IC['arrow']}</a></div>""" for a in ARTIKELEN)
+    h+=f"""<section class="section">
+  <div class="wrap prose">
+    <span class="eyebrow">{IC['leaf']}Blog</span>
+    <h1>Blog</h1>
+    <p class="lead">Artikelen over afvallen, gezond eten en in balans blijven.</p>
+    <div class="grid cols-2" style="margin-top:14px">{cards}</div>
+  </div>
+</section>"""
+    h+=footer(); write(path,h)
+    for a in ARTIKELEN:
+        ap=path+a["slug"]+"/"; cr=[("Home","/"),("Blog",path),(a["titel"],ap)]
+        ld=[breadcrumb(cr),{"@context":"https://schema.org","@type":"BlogPosting","headline":a["titel"],"description":a["omschrijving"],"datePublished":a["datum"],"url":BASE+ap,"mainEntityOfPage":BASE+ap,"inLanguage":"nl-NL","publisher":{"@type":"Organization","name":SITE,"url":BASE}}]
+        h=head(a["titel"]+" | "+SITE,a["omschrijving"],ap,ld)
+        h+=crumbs_html(cr)
+        h+=f"""<section class="section">
+  <article class="wrap prose">
+    <span class="eyebrow">{IC['leaf']}Blog &middot; {a['datumtekst']}</span>
+    <h1>{esc(a['titel'])}</h1>
+    {a['body']}
+    <p><a class="more" href="{path}">Alle artikelen {IC['arrow']}</a></p>
+  </article>
+</section>"""
+        h+=footer(); write(ap,h)
+
 def page_partners():
     path="/partners/"; crumbs=[("Home","/"),("Partners",path)]
     ld=[breadcrumb(crumbs),{"@context":"https://schema.org","@type":"WebPage","@id":BASE+path,"url":BASE+path,"name":"Partners","inLanguage":"nl-NL"}]
@@ -495,7 +550,7 @@ def not_found():
     open(os.path.join(OUT,"404.html"),"w",encoding="utf-8").write(h)
 
 def extras():
-    urls=["/","/slinc/","/afslankstudios/","/over-rachel/","/videos/","/partners/","/contact/","/privacybeleid/","/cookiebeleid/"]
+    urls=["/","/slinc/","/afslankstudios/","/over-rachel/","/videos/","/blog/"]+["/blog/"+a["slug"]+"/" for a in ARTIKELEN]+["/partners/","/contact/","/privacybeleid/","/cookiebeleid/"]
     sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"  <url><loc>{BASE}{u}</loc></url>\n" for u in urls)+"</urlset>\n"
     open(os.path.join(OUT,"sitemap.xml"),"w").write(sm)
     open(os.path.join(OUT,"robots.txt"),"w").write(f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
@@ -514,7 +569,7 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     copy_assets()
     page_home(); page_slinc(); page_studios(); page_rachel(); page_videos()
-    page_partners()
+    page_blog(); page_partners()
     page_contact(); privacy(); cookies(); not_found(); extras()
     print("Build klaar in", OUT)
 
